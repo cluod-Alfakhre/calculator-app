@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Calculator app</title>
+
+  
+</head>
+<body>
+  <main>
+    <div class="content">
+      <header>
+        <h1 class="logo">calc</h1>
+        <div class="theme">
+           <p>THEME</p>
+           <div class="toggle first-theme">
+              <div class="number-bar">
+                <span>1</span><span>2</span><span>3</span>
+              </div>
+           </div>
+        </div>
+      </header>
+
+      <input type="text" placeholder="399,333" pattern="[^0-9]" class="screen"></input>
+
+      <div class="calc-btns grid four-columns">
+
+        <div class="numbers grid three-columns">
+          <!-- js will fill that with numbers -->
+        </div>
+
+        <div class="delete btn">DEL</div>
+        <div class="plus sign btn">+</div>
+        <div class="minus sign btn">-</div>
+
+        <div class="dot number btn">.</div>
+        <div class="number btn">0</div>
+        <div class="divider sign btn">/</div>
+        <div class="multiply sign btn">x</div>
+
+        <div class="reset btn">RESET</div>
+        <div class="result btn">=</div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

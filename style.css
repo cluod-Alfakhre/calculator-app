@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+:root {
+  --theme-background: hsl(224, 26%, 31%);
+  --btns-pad-background: hsl(225, 30%, 21%);
+  --screen-bg: hsl(224, 35%, 15%);
+  --header-font-color: white;
+  --input-color:white;
+  --box-radios: 0.6rem;
+  --grid-gap: 30px 1.5rem;
+  --transition: .2s;
+  --key-shadow: hsl(24, 15%, 65%);
+  --key-font-color: hsl(222, 13%, 31%);
+  --key-bg: hsl(30, 25%, 89%);
+  --key-hover:hsl(27, 60%, 97%);
+  --del-background: hsl(225, 21%, 49%);
+  --del-shadow: hsl(224, 28%, 35%);
+  --del-font-color: white;
+  --del-hover: hsl(225, 23%, 54%);
+  --del-font-sise: 26px;
+  --result-background: hsl(6, 63%, 50%);
+  --result-shadow: hsl(6, 70%, 34%);
+  --result-font-color: white;
+  --result-hover: hsl(6, 74%, 56%);
+  --result-font-sise: 22px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  min-height: 100%;
+}
+
+body.second-theme {
+  --theme-background: hsl(0, 0%, 90%);
+  --btns-pad-background: hsl(0, 6%, 82%) ;
+  --screen-bg: hsl(0, 0%, 93%) ;
+  --header-font-color: hsl(60, 10%, 19%) ;
+  --input-color: hsl(60, 10%, 19%) ;
+  --key-shadow: hsl(24, 15%, 65%) ;
+  --key-font-color: hsl(60, 9%, 19%) ;
+  --key-bg: hsl(30, 25%, 89%);
+  --key-hover:hsl(27, 60%, 97%);
+  --del-background: hsl(185, 41%, 37%);
+  --del-shadow: hsl(186, 56%, 26%) ;
+  --del-font-color: white;
+  --del-hover: hsl(185, 41%, 46%) ;
+  --result-background: hsl(6, 63%, 50%) ;
+  --result-shadow: hsl(6, 70%, 34%) ;
+  --result-font-color: white ;
+  --result-hover: hsl(6, 74%, 56%) ;
+}
+
+body.third-theme {
+  --theme-background: hsl(268, 75%, 9%);
+  --btns-pad-background: hsl(269, 74%, 12%);
+  --screen-bg: hsl(269, 74%, 12%);
+  --header-font-color: hsl(50, 92%, 62%) ;
+  --input-color:hsl(50, 92%, 62%);
+  --key-shadow: hsl(289, 68%, 37%) ;
+  --key-font-color: hsl(53, 100%, 61%) ;
+  --key-bg: hsl(269, 48%, 20%);
+  --key-hover:hsla(289, 48%, 43%, 0.589);
+  --del-background: hsl(281, 88%, 25%) ;
+  --del-shadow: hsl(285, 91%, 52%) ;
+  --del-font-color: hsl(295, 100%, 98%);
+  --del-hover: hsl(281, 65%, 29%) ;
+  --result-background: hsl(176, 100%, 44%) ;
+  --result-shadow: hsl(176, 92%, 70%) ;
+  --result-font-color: hsl(295, 100%, 98%) ;
+  --result-hover: hsl(176, 73%, 49%) ;
+}
+
+body {
+  font-family: "League Spartan", sans-serif;
+}
+
+/* custom classes */
+.grid {
+  display: grid;
+}
+
+.four-columns {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+main {
+  background-color: var(--theme-background);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.content {
+  max-width: 527px;
+  display: grid;
+  gap: var(--grid-gap);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.content .calc-btns {
+  background-color: var(--btns-pad-background);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  gap: var(--grid-gap);
+  padding: 1.5rem;
+  border-radius: var(--box-radios);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--header-font-color);
+}
+header .logo {
+  font-size: 40px;
+}
+header .theme {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+header .theme p {
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+header .toggle {
+  position: relative;
+  background-color: var(--btns-pad-background);
+  border-radius: 1rem;
+  height: 27px;
+  width: 73px;
+  display: grid;
+  align-items: center;
+  cursor: pointer;
+}
+header .toggle::after {
+  content: "";
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--result-background);
+  position: absolute;
+  cursor: pointer;
+  transition: var(--transition);
+}
+header .toggle.first-theme::after {
+  left: 5px;
+}
+header .toggle.second-theme::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+header .toggle.third-theme::after {
+  left: 52px;
+  right: 0;
+}
+header .toggle .number-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 100%;
+}
+
+.screen {
+  text-align: right;
+  border: none;
+  height: 8rem;
+  padding: 2rem;
+  background-color: var(--screen-bg);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  overflow: hidden;
+  display: grid;
+  justify-content: flex-end;
+  align-items: center;
+  color: var(--input-color);
+  font-size: 36px;
+  border-radius: var(--box-radios);
+}
+.screen::-moz-placeholder {
+  color: rgba(172, 171, 171, 0.89);
+  font-size: 45px;
+  font-weight: bold;
+}
+.screen:-ms-input-placeholder {
+  color: rgba(172, 171, 171, 0.89);
+  font-size: 45px;
+  font-weight: bold;
+}
+.screen::placeholder {
+  color: rgba(172, 171, 171, 0.89);
+  font-size: 45px;
+  font-weight: bold;
+}
+.screen:focus {
+  outline: none;
+}
+
+.numbers {
+  grid-column: span 3;
+  grid-row: span 3;
+  gap: var(--grid-gap);
+  transform: rotateY(180deg);
+}
+.numbers .btn {
+  transform: rotateY(180deg);
+}
+
+.btn {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  color: var(--key-font-color);
+  padding-top: 0.425rem;
+  cursor: pointer;
+  box-shadow: 0 4px var(--key-shadow);
+  background-color: var(--key-bg);
+  border-radius: clamp(0.3rem, 0.1592rem + 0.6009vw, 0.7rem);
+  min-height: 54px;
+}
+.btn:hover {
+  background-color: var(--key-hover);
+}
+
+.delete.btn, .btn.reset {
+  background-color: var(--del-background);
+  color: var(--del-font-color);
+  font-size: var(--del-font-sise);
+  box-shadow: 0 4px var(--del-shadow);
+  transition: var(--transition);
+  letter-spacing: 2px;
+}
+.delete.btn:hover, .btn.reset:hover {
+  background-color: var(--del-hover);
+}
+
+.reset.btn {
+  font-size: 28px;
+}
+
+.result {
+  background-color: var(--result-background);
+  box-shadow: 0 4px var(--result-shadow);
+  color: var(--result-font-color);
+  transition: var(--transition);
+}
+.result:hover {
+  background-color: var(--result-hover);
+}
+
+.result, .reset {
+  grid-column: span 2;
+}
+
+@media (min-width: 1300px) {
+  .content {
+    width: 100%;
+  }
+  .btn {
+    min-height: 61px;
+    font-size: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .content .calc-btns {
+    gap: 10px;
+  }
+  .numbers {
+    gap: 10px;
+  }
+}/*# sourceMappingURL=style.css.map */
